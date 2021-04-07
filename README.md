@@ -23,3 +23,31 @@ For a voracious reader, it’s always a big task to replace old titles with new 
 
 
 ## Tech-Stack
+- Java Spring Boot
+- MySQL
+- HTML
+- CSS
+- jQuery
+- Docker
+
+## How to Run Code
+Pre-requisites
+
+- Java
+- JAVA_HOME path
+- Docker
+
+## To run without Docker
+Execute the following command in project root directory
+`./gradlew clean run`
+
+## To run with Docker
+Execute the following command from project root directory
+`build_and_docker.sh`
+This command builds the code, builds docker image for server and MySQL and docker-compose the application
+
+## Swagger Documentation
+(http://localhost:8080/swagger-ui.html)
+
+## Accessing UI
+(http://localhost:8080/assets/pages/default.html)
