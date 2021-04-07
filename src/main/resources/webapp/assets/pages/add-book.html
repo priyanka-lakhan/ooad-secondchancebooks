@@ -100,7 +100,7 @@
                     "isbn": $("#txtBookISBN").val(),
                     "originalLanguage": $("#txtBookLanguage").val(),
                     "pageCount": parseInt($("#txtBookPageCount").val()),
-                    "publishedDate": $("#txtBookDesc").val(),
+                    "publishedDate": $("#txtBookPublishDate").val(),
                     "publisher": $("#txtBookPublisher").val(),
                     "title": $("#txtBookName").val(),
                 }
@@ -108,7 +108,7 @@
                 book.add(dataJson, document.getElementById('bookPhotoUrl').files[0]);
             });
 
-            $("#txtBookPublishDate").datepicker({});
+            $("#txtBookPublishDate").datepicker({ dateFormat: 'yy-mm-dd' });
         });
     </script>
 </head>

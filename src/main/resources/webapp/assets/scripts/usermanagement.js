@@ -1,7 +1,5 @@
 ﻿$(function () {
     user.eventHandlers();
-    $("#txtUserName").val("plakhan");
-    $("#txtPassword").val("plakhan");
 });
 
 var user = {
