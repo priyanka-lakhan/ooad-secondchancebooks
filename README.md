@@ -40,6 +40,8 @@ Pre-requisites
 ## To run without Docker
 Execute the following command in project root directory
 `./gradlew clean run`
+## Update MySQL connection string
+Update MySQL location in `application.yml` file at `ooad-secondchancebooks\src\main\resources`. Update property `datasource.url`. By default, it points to localhost:3306
 
 ## To run with Docker
 Execute the following command from project root directory
