@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SecondChanceBooks</title>
+    <!--Start - Libraries-->
+    <link href="../libraries/bootstrap.min.css" rel="stylesheet" />
+    <link href="../libraries/jquery-ui.min.css" rel="stylesheet" />
+    <script src="../libraries/jquery.min.js"></script>
+    <script src="../libraries/bootstrap.min.js"></script>
+    <script src="../libraries/jquery-ui.min.js"></script>
+    <script src="../libraries/aes.js"></script>
+    <!--End - Libraries-->
+
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/booklistings.css" />
+
+    <script src="../scripts/default.js"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/booklistings.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            bookListing.loadGrid();
+        });
+    </script>
+</head>
+<body>
+    <div style="margin: 0px 30px;margin-top: 20px;">
+        <form>
+            <div class="form-group">
+                <label>Search by author:</label>
+                <select id="authorList" class="form-control" aria-label="Search by author" style="display:inline;width:200px;margin-right:10px;margin-left:5px;"></select>
+                <label>Search by genre:</label>
+                <select id="genreList" class="form-control" aria-label="Search by genre" style="display:inline;width:200px;margin-right:10px;margin-left:5px;"></select>
+            </div>
+        </form>
+    </div>
+    <div id="book_listing_container" align="left"></div>
+    <script id="book_list_thumbnail" type="text/x-dot-template">
+        <table class="thumbnail border-blue" cellpadding="0" cellspacing="0" id="{{id}}" bookid="{{bookid}}" author="{{author}}" genre="{{genre}}">
+            <tr>
+                <td class="img-col">
+                    <img class="cover-img" src="{{thumbnail}}" />
+                    <div class="cover-hover">
+                        <input type="button" class="btn bg-blue btnAboutBook" value="About Book" />
+                    </div>
+                </td>
+                <td class="desc-col" style="width:100%;">
+                    <div class="details-container">
+                        <div style="height:200px;">
+                            <h6 class="heading-container font-blue">{{heading}}</h6>
+                            <div class="price-container bg-blue">
+                                <span class="span-price">{{price}}</span>
+                                <div class="triangle-left bg-blue"></div>
+                            </div>
+                            <div class="desc-container" style="clear:both">
+                                <span class="font-blue">Description: </span>
+                                <span class="span-desc">{{description}}</span>
+                            </div>
+                        </div>
+                        <div class="send-container" style="clear:both">
+                            <input type="button" class="btn bg-blue btnSendSellerDetails" value="Interested"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SecondChanceBooks</title>
+    <!--Start - Libraries-->
+    <link href="../libraries/bootstrap.min.css" rel="stylesheet" />
+    <link href="../libraries/jquery-ui.min.css" rel="stylesheet" />
+    <script src="../libraries/jquery.min.js"></script>
+    <script src="../libraries/bootstrap.min.js"></script>
+    <script src="../libraries/jquery-ui.min.js"></script>
+    <script src="../libraries/aes.js"></script>
+    <!--End - Libraries-->
+
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="../css/booklistings.css" />
+
+    <script src="../scripts/default.js"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/booklistings.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            bookListing.loadMyGrid();
+        });
+    </script>
+    <style>
+        #editListingModal {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+            #editListingModal > div {
+                position: absolute;
+                height: 385px;
+                width: 800px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background: #fff;
+                box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.24);
+                -webkit-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.24);
+                -moz-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.24);
+                padding: 20px;
+            }
+
+            #editListingModal .close-modal {
+                text-align: right;
+                font-size: 20px;
+                height: 30px;
+                width: 30px;
+                color: #fff;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: rgb(20, 113, 169);
+                padding-right: 7px;
+            }
+
+        #frmEditBookingListing {
+            margin-top:30px;
+        }
+
+            #frmEditBookingListing label.input-group-text {
+                width: 130px;
+            }
+
+        #my_listing_container .details-container {
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px;
+            display: inline-block;
+        }
+
+        #my_listing_container .heading-container, #my_listing_container .price-container, #my_listing_container .desc-container {
+            margin-bottom: 10px;
+            clear:both;
+        }
+        #my_listing_container .send-container {
+            margin-top:10px;
+        }
+        .btnEditBookListing {
+            display:inline-block;
+            margin-right:10px;
+            width:150px;
+        }
+
+        .btnDeleteBookListing {
+            display: inline-block;
+            width:150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="my_listing_container" align="left"></div>
+    <script id="my_book_list_thumbnail" type="text/x-dot-template">
+        <div class="details-container border-blue" id="{{id}}">
+            <div style="height:200px;width:500px;">
+                <h4 class="heading-container font-blue">{{heading}}</h4>
+                <div class="price-container">
+                    <span class="font-blue">Price: </span>
+                    <span class="span-price">{{price}}</span>
+                </div>
+                <div class="desc-container">
+                    <span class="font-blue">Description: </span>
+                    <span class="span-desc">{{description}}</span>
+                    <span class="desc" hidden>{{description_full}}</span>
+                </div>
+            </div>
+            <div class="send-container" style="clear:both">
+                <input class="btn bg-blue btnEditBookListing" type="button" value="Edit" />
+                <input class="btn btn-danger btnDeleteBookListing" type="button" value="Delete" />
+            </div>
+        </div>
+    </script>
+    <div id="editListingModal" style="display:none;">
+        <div>
+            <div class="close-modal">
+                <span>X</span>
+            </div>
+            <form id="frmEditBookingListing" >
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <label for="txtEditBookListingName" class="input-group-text">Title</label>
+                    </div>
+                    <input type="text" id="txtEditBookListingName" class="form-control" />
+                    <p class="error-note price-error"></p>
+                </div>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <label for="txtEditBookListingDesc" class="input-group-text">Description</label>
+                    </div>
+                    <textarea id="txtEditBookListingDesc" class="form-control"></textarea>
+                </div>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <label for="txtEditBookListingPrice" class="input-group-text">Price</label>
+                    </div>
+                    <input type="text" id="txtEditBookListingPrice" class="form-control" />
+                </div>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <label for="txtEditBookListingType" class="input-group-text">Sell/Rent</label>
+                    </div>
+                    <select id="txtEditBookListingType" class="form-control" disabled>
+                        <option value="SELL">SELL</option>
+                        <option value="RENT">RENT</option>
+                    </select>
+                </div>
+                <input type="button" class="btn bg-blue btn-block" id="btnSaveEditBookListing" value="Save Changes" style="text-align:center" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

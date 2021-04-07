@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SecondChanceBooks</title>
+    <!--Start - Libraries-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--End - Libraries-->
+
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <script src="../scripts/default.js"></script>
+    <script src="../scripts/validation.js"></script>
+    <script src="../scripts/booklistings.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            book.showDetails();
+        });
+    </script>
+
+    <style>
+        body.book-body {
+            background-image: url('../images/book_info_bg.jpg');
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: top; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        #book_container {
+            padding: 20px;
+            vertical-align: top;
+            width: 80%;
+            background: rgba(255,255,255,0.7);
+            margin: 50px;
+            border-radius: 20px;
+        }
+        #book_container .div_desc {
+            margin-bottom: 10px;
+        }
+        #book_container .div_img {
+            padding-right:20px;
+        }
+            #book_container .div_img img{
+                height: 200px;
+                width: 200px;
+            }
+    </style>
+</head>
+<body class="book-body">
+    <a onclick="main.loadpage('booklistings')" class="btn bg-green" style="margin-left: 50px;margin-top: 30px;"><< Back</a>
+    <div id="book_container"></div>
+    <script id="book_details" type="text/x-dot-template">
+        <table>
+            <tr>
+                <td class="div_img" valign="top">
+                    <img src="{{thumbnail}}" />
+                </td>
+                <td>
+                    <div class="div_desc">
+                        <h2>{{title}}</h2>
+                    </div>
+                    <div class="div_desc">
+                        <b>Author:</b>
+                        <span>{{author}}</span>
+                    </div>
+                    <div class="div_desc">
+                        <b>Publisher:</b>
+                        <span>{{publisher}}</span>
+                    </div>
+                    <div class="div_desc">
+                        <b>Page Count:</b>
+                        <span>{{pagecount}}</span>
+                    </div>
+                    <div class="div_desc">
+                        <b>Genre:</b>
+                        <span>{{genre}}</span>
+                    </div>
+                    <div class="div_desc">
+                        <b>ISBN:</b>
+                        <span>{{ISBN}}</span>
+                    </div>
+                    <div class="div_desc">
+                        <b>Original Publish Date:</b>
+                        <span>{{originallypublished}}</span>
+                    </div>
+                    <div class="div_desc">
+                        <b>Original Language:</b>
+                        <span>{{originallanguage}}</span>
+                    </div>
+                    <div class="div_desc">
+                        <b>Edition:</b>
+                        <span>{{edition}}</span>
+                    </div>
+                    <div class="div_desc">
+                        <b>Description:</b>
+                        <span>{{description}}</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </script>
+</body>
+</html>

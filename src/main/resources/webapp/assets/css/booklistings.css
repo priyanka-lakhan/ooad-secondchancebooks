@@ -1,0 +1,92 @@
+﻿#book_listing_container .thumbnail {
+    height: 320px;
+    width: 46%;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 20px;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    border-width: 1px;
+}
+
+    #book_listing_container .thumbnail img.cover-img {
+        height: 260px;
+        width: 200px;
+    }
+
+    #book_listing_container .thumbnail .details-container {
+        height: 260px;
+        overflow: hidden;
+    }
+
+    #book_listing_container .thumbnail .cover-hover {
+        position: absolute;
+        height: 260px;
+        width: 200px;
+        display: none;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.5);
+        text-align: center;
+        padding-top: 60%;
+    }
+
+        #book_listing_container .thumbnail .cover-hover input {
+            padding: 10px;
+            font-size: 13px;
+        }
+
+    #book_listing_container .thumbnail .img-col {
+        vertical-align: top;
+        position: relative;
+    }
+
+    #book_listing_container .thumbnail .desc-col {
+        padding-left: 20px;
+        vertical-align: top;
+    }
+
+        #book_listing_container .thumbnail .desc-col p, .thumbnail .desc-col .heading-container {
+            margin: 0;
+            padding: 0;
+            margin-bottom: 15px;
+            max-height: 80px;
+            width: 100%;
+        }
+
+        #book_listing_container .thumbnail .desc-col p, .thumbnail .desc-col .price-container {
+            height: 30px;
+            width: 100%;
+            vertical-align: top;
+            text-align: left;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+            #book_listing_container .thumbnail .desc-col p, .thumbnail .desc-col .price-container .span-price {
+                vertical-align: -webkit-baseline-middle;
+                display: inline-block;
+            }
+
+            #book_listing_container .thumbnail .desc-col p, .thumbnail .desc-col .price-container .triangle-left {
+                width: 0;
+                height: 0;
+                border-top: 15px solid transparent;
+                border-right: 10px solid #fff;
+                border-bottom: 15px solid transparent;
+                display: inline-block;
+                vertical-align: top;
+                float: right;
+            }
+
+    #book_listing_container .thumbnail .btnAboutBook {
+        cursor:pointer;
+    }
+
+    #book_listing_container .thumbnail .send-container {
+        cursor:pointer;
+        margin-top:15px;
+        text-align:right;
+        padding:5px;
+    }

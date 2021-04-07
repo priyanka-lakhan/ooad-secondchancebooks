@@ -1,0 +1,16 @@
+USE scbooks;
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` BIGINT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` NVARCHAR(50) NOT NULL,
+  `password` NVARCHAR(100) NOT NULL,
+  `firstname` NVARCHAR(50) NULL,
+  `lastname` NVARCHAR(50) NULL,
+  `email` NVARCHAR(65) NULL,
+  `phone` NVARCHAR(15) NULL,
+  `created_on` DATETIME NULL,
+  `status` ENUM('ACTIVE', 'DELETED') NULL DEFAULT 'ACTIVE',
+  `role` ENUM('ROLE_ADMIN', 'ROLE_USER') NOT NULL DEFAULT 'ROLE_USER',
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE
+  )ENGINE = InnoDB;

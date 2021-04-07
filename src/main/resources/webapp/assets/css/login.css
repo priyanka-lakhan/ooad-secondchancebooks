@@ -1,0 +1,44 @@
+﻿.form-container {
+    margin: 40px;
+    border: 1px solid #C0C0C0;
+    padding: 30px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.5);
+}
+
+.register-link-container {
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+a {
+    color: #000;
+    cursor: pointer;
+}
+
+.input-group-prepend label.input-group-text {
+    width: 125px;
+}
+
+.password-note {
+    margin-top: 5px;
+    font-size: 10px !important;
+}
+
+.error-note {
+    color: #ff0000;
+    font-size: 10px !important;
+    display: block;
+    clear: both;
+    width: 100%;
+    padding-top: 5px;
+    text-align: right;
+}
+
+body.login-body {
+    background-image: url('../images/main-bg-image.png');
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}

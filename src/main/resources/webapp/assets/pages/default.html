@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SecondChanceBooks</title>
+
+    <!--Start - Libraries-->
+    <link href="../libraries/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../libraries/jquery.min.js"></script>
+    <script src="../libraries/bootstrap.min.js"></script>
+    <!--End - Libraries-->
+
+    <link rel="stylesheet" href="../css/default.css">
+    <script src="../scripts/default.js"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/validation.js"></script>
+    <script src="../scripts/usermanagement.js"></script>
+</head>
+<body class="homepage-body">
+    <div id="template_container" hidden></div>
+    <div id="alertBox" hidden>
+        <div style="height:20px;width:20px;float:right;">
+            <span class="fa fa-close"></span>
+        </div>
+        <p></p>
+    </div>
+    <div class="container-fluid">
+        <div class="row well bd-title title-bar-container">
+            <div class="col-sm-1">
+                <img src="../images/logo.png" class="logo-img" onclick="main.loadpage('booklistings');" />
+            </div>
+            <div class="col-sm well title-bar">
+                <h1 class="bd-title">SecondChance<span class="font-green">Books</span></h1>
+            </div>
+            <a style="color:#fff;margin-top: 25px;margin-right: 10px;cursor:pointer;" onclick="main.loadpage('allbooks')">Visit Library</a>
+            <a style="color:#fff;margin-top: 25px;margin-right: 10px;cursor:pointer;" onclick="main.loadpage('booklistings')">|&nbsp;&nbsp;Show Books</a>
+            <a style="color:#fff;margin-top: 25px;margin-right: 10px;cursor:pointer;" id="linkAddMainBook" onclick="main.loadpage('add-book')" hidden>|&nbsp;&nbsp;Add Main Book</a>
+            <div class="user-profile">
+                <img src="{{profile_src}}" />
+            </div>
+            <div class="user-profile-container" style="display:none;">
+                <div class="arrow-up"></div>
+                <div class="user-profile-menu">
+                    <div class="bg-white">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <img src="{{thumbnailUrl}}" />
+                                </td>
+                                <td>
+                                    <h6 class="font-pink">{{firstName}} {{lastName}}</h6>
+                                    <p class="email-div">{{email}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="menu-item-list">
+                        <div class="list-item">
+                            <i class="fa fa-user"></i><a onclick="main.loadpage('edit-profile')">Edit Profile</a>
+                        </div>
+                        <div class="list-item">
+                            <i class="fa fa-address-book"></i><a onclick="main.loadpage('my-booklistings')">My Books</a>
+                        </div>
+                        <div class="list-item">
+                            <i class="fa fa-book"></i><a onclick="main.loadpage('add-book-listing')">Add Book</a>
+                        </div>
+                        <div class="list-item">
+                            <i class="fa fa-question"></i><a onclick="main.loadpage('help')">Contact us</a>
+                        </div>
+                    </div>
+                    <div class="bg-white">
+                        <input type="button" class="btn" id="btnLogout" value="Log out" align="right" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <iframe id="default_content_container" height="840" style="height:840px;overflow-x:hidden;" />
+        </div>
+    </div>
+
+</body>
+</html>

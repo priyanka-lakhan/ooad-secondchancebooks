@@ -1,0 +1,63 @@
+spring:
+  profiles.active: local
+  jpa:
+    hibernate:
+      use-new-id-generator-mappings: false
+      jdbc:
+        batch_size: 20
+      ddl-auto: ''
+    properties:
+      hibernate:
+        dialect: 'org.hibernate.dialect.MySQL5Dialect'
+  datasource:
+    url: 'jdbc:log4jdbc:mysql://localhost:3306/scbooks?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true'
+    username: root
+    password: test
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    alternateUsernameAllowed: true
+    max-active: 100
+    min-idle: 10
+    max-wait: 10000
+    initial-size: 10
+    test-on-borrow: true
+    validation-query: SELECT 1
+    remove-abandoned: true
+    remove-abandoned-timeout: 60
+    log-abandoned: true
+    test-while-idle: true #(boolean) The indication of whether objects will be validated by the idle object evictor (if any). If an object fails to validate, it will be dropped from the pool. The default value is false and this property has to be set in order for the pool cleaner/test thread is to run
+    time-between-eviction-runs-millis: 600000 # Server wait_timeout = 1200 seconds, we check every 600 seconds
+    jdbc-interceptors: ResetAbandonedTimer
+  mvc:
+    static-path-pattern: /assets/**
+flyway:
+  out-of-order: true
+  user: root
+  password: test
+  placeholderReplacement: false
+  locations: classpath:db/migration
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+
+security:
+  jwt:
+    token:
+      secret-key: ERqTyrQEdzAze0enyRRhBR0ekntdX2sr
+
+mail:
+  sender:
+    host: smtp.elasticemail.com
+    username: norply.scbooks@gmail.com
+    password: M0UzNERENkRDQjE2RTZCMzQ4QzFCRjQwNjI5QkJCNDg5NThE
+    port: 2525
+
+swagger:
+  contact: lakhanpriyanka25@gmail.com
+  description: SecondChanceBooks.com - Book sharing platform
+  enabled: true
+  title: SecondChanceBooks.com
+

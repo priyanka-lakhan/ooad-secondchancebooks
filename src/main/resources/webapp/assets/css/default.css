@@ -1,0 +1,218 @@
+﻿body.homepage-body {
+    overflow: hidden;
+}
+
+body * {
+    padding: 0;
+    margin: 0;
+    clear: both;
+    font-family: Roboto,Arial, Helvetica, sans-serif;
+}
+
+div.title-bar-container {
+    background: #000;
+    color: #fff;
+    padding: 10px;
+}
+
+img.logo-img {
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+    cursor:pointer;
+}
+
+div.title-bar {
+    margin-top: 15px;
+    padding-left: 0px;
+}
+
+
+h1.bd-title, h1.bd-title span {
+    font-size: 40px !important;
+}
+
+.font-green {
+    color: #a3cb3c;
+}
+
+.bg-green, .bg-green:hover, .bg-green:active {
+    background-color: #a3cb3c;
+    border-color: #a3cb3c;
+    color: #fff;
+}
+
+.btn.bg-green:not(:disabled):not(.disabled).active, .btn.bg-green:not(:disabled):not(.disabled):active, .show > .btn.bg-green.dropdown-toggle {
+    background-color: #a3cb3c;
+    border-color: #a3cb3c;
+    color: #fff;
+}
+
+.font-blue {
+    color: #1471a9;
+}
+
+.bg-blue, .bg-blue:hover, .bg-blue:active {
+    background-color: #1471a9;
+    border-color: #1471a9;
+    color: #fff;
+}
+
+.btn.bg-blue:not(:disabled):not(.disabled).active, .btn.bg-blue:not(:disabled):not(.disabled):active, .show > .btn.bg-blue.dropdown-toggle {
+    background-color: #1471a9;
+    border-color: #1471a9;
+    color: #fff;
+}
+
+.font-pink {
+    color: #cf2683;
+}
+
+.bg-pink, .bg-pink:hover, .bg-pink:active {
+    background-color: #cf2683;
+    border-color: #cf2683;
+    color: #fff;
+}
+
+.btn.bg-pink:not(:disabled):not(.disabled).active, .btn.bg-pink:not(:disabled):not(.disabled):active, .show > .btn.bg-pink.dropdown-toggle {
+    background-color: #cf2683;
+    border-color: #cf2683;
+    color: #fff;
+}
+
+.border-blue {
+    border: 1px solid #1471a9;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-gray {
+    background-color: #98a79d;
+}
+/*grey: #98a79d, beige: #f0e8ce*/
+#default_content_container {
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 654px;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.user-profile img {
+    height: 60px; 
+    width: 60px;
+    border-radius: 50%;
+    display: none;
+    border: 3px solid #cf2683;
+    cursor: pointer !important;
+    margin: 10px 30px 0px 0px;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #fff;
+    position: absolute;
+    top: 85px;
+    right: 60px;
+}
+
+.user-profile-menu {
+    border-radius: 10px;
+    background-color: #fff;
+    color: #808080;
+    position: absolute;
+    top: 100px;
+    right: 40px;
+    box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.24);
+    padding: 20px;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+    .user-profile-menu > div {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .user-profile-menu img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 3px solid #cf2683;
+        margin-right: 20px;
+    }
+
+    .user-profile-menu h6 {
+        margin-bottom: 10px;
+    }
+
+    .user-profile-menu .email-div {
+        font-size: 13px;
+        word-break: break-all;
+    }
+
+    .user-profile-menu .menu-item-list {
+        background-color: #f4ebf0;
+        color: #443d3d;
+        padding-left: 20px;
+        font-size:14px;
+    }
+
+        .user-profile-menu .menu-item-list a, .user-profile-menu .menu-item-list a:visited, .user-profile-menu .menu-item-list a:hover{
+            color: #443d3d;
+            cursor:pointer !important;
+        }
+
+        .user-profile-menu .menu-item-list .fa {
+            width: 25px;
+            margin-bottom: 10px;
+        }
+
+#btnLogout {
+    background-color: #fff;
+    border: 2px solid #cf2683;
+    border-radius: 5px;
+    color: #cf2683;
+    float: right;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.custom-file-input::before {
+    content: 'Select Profile Photo';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+
+.custom-file-input:hover::before {
+    border-color: black;
+}
+
+.custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}

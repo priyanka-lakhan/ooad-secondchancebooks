@@ -1,0 +1,36 @@
+version: '3'
+services:
+  mysql:
+    container_name: scbooks-mysql
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: 'scbooks'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'test'
+      MYSQL_ROOT_PASSWORD: 'test'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_volume:/var/lib/mysql
+    networks:
+      - spring-cloud-network
+
+  scbooks-server:
+    depends_on:
+      - mysql
+    restart: always
+    container_name: scbooks-server
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    image: scbooks-server:latest
+    ports:
+      - 8080:8080
+    networks:
+      - spring-cloud-network
+volumes:
+  mysql_volume:
+
+networks:
+  spring-cloud-network:
+    driver: bridge

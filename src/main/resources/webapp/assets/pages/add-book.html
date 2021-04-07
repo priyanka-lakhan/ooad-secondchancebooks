@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SecondChanceBooks</title>
+    <!--Start - Libraries-->
+    <link href="../libraries/bootstrap.min.css" rel="stylesheet" />
+    <link href="../libraries/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
+
+    <script src="../libraries/jquery.min.js"></script>
+    <script src="../libraries/bootstrap.min.js"></script>
+    <script src="../libraries/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/js/bootstrap-select.js"></script>
+    <!--End - Libraries-->
+
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <script src="../scripts/default.js"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/booklistings.js"></script>
+    <style>
+        body.add-book-body {
+            background-image: url('../images/add_book.png');
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: top; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover;
+            clear: both;
+        }
+
+        #addBookContainer {
+            width: 800px;
+            margin: 40px;
+            border: 1px solid #C0C0C0;
+            padding: 30px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.5);
+            margin-top: 20px;
+            margin-left: 60px;
+            float: right;
+        }
+
+            #addBookContainer #imgBookThumbnail {
+                margin-right: 30px;
+                vertical-align: top;
+            }
+
+            #addBookContainer label {
+                width: 150px;
+            }
+
+            #addBookContainer input {
+                width: 300px;
+            }
+
+            #addBookContainer .edit-icon {
+                position: absolute;
+                height: 30px;
+                width: 30px;
+                background: rgba(207, 38, 131,0.5);
+                color: #fff;
+                top: 0;
+                left: 0;
+                text-align: center;
+                padding-top: 5px;
+                cursor: pointer;
+            }
+
+            #addBookContainer #fileThumbnailUrl {
+                width: 30px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 30px;
+                cursor: pointer;
+            }
+    </style>
+    <script>
+        $(function () {
+            //bookListing.loadAllbooks();
+            $("#bookPhotoUrl").change(function () {
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#imgbookPhoto')
+                            .attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+            $("#btnAddBook").click(function () {
+                var dataJson = {
+                    "author": $("#txtBookAuthor").val(),
+                    "category": $("#txtBookGenre").val(),
+                    "description": $("#txtBookDesc").val(),
+                    "edition": $("#txtBookEdition").val(),
+                    "isbn": $("#txtBookISBN").val(),
+                    "originalLanguage": $("#txtBookLanguage").val(),
+                    "pageCount": parseInt($("#txtBookPageCount").val()),
+                    "publishedDate": $("#txtBookDesc").val(),
+                    "publisher": $("#txtBookPublisher").val(),
+                    "title": $("#txtBookName").val(),
+                }
+
+                book.add(dataJson, document.getElementById('bookPhotoUrl').files[0]);
+            });
+
+            $("#txtBookPublishDate").datepicker({});
+        });
+    </script>
+</head>
+<body class="add-book-body">
+    <div id="addBookContainer">
+        <form id="frmAddBooking">
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookName" class="input-group-text">Title</label>
+                </div>
+                <input type="text" id="txtBookName" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookDesc" class="input-group-text">Description</label>
+                </div>
+                <textarea id="txtBookDesc" class="form-control"></textarea>
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookAuthor" class="input-group-text">Author</label>
+                </div>
+                <input type="text" id="txtBookAuthor" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookGenre" class="input-group-text">Category</label>
+                </div>
+                <input type="text" id="txtBookGenre" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookPublisher" class="input-group-text">Publisher</label>
+                </div>
+                <input type="text" id="txtBookPublisher" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookISBN" class="input-group-text">ISBN</label>
+                </div>
+                <input type="text" id="txtBookISBN" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookPageCount" class="input-group-text">Page count</label>
+                </div>
+                <input type="text" id="txtBookPageCount" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookLanguage" class="input-group-text">Original Language</label>
+                </div>
+                <input type="text" id="txtBookLanguage" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookEdition" class="input-group-text">Edition</label>
+                </div>
+                <input type="text" id="txtBookEdition" class="form-control" />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtBookPublishDate" class="input-group-text">Publish Date</label>
+                </div>
+                <input type="text" id="txtBookPublishDate" class="form-control">
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="bookPhotoUrl" class="input-group-text">Profile Photo</label>
+                </div>
+                <input class="form-control" type="file" id="bookPhotoUrl" />
+            </div>
+            <div style="margin-bottom: 20px; text-align: center;">
+                <img id="imgbookPhoto" src="http://localhost:8080/assets/books/no-image.jpg" style="height:100px;width:100px;">
+            </div>
+            <input type="button" class="btn bg-blue btn-block" id="btnAddBook" value="Add Book" style="text-align:center" />
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SecondChanceBooks</title>
+    <!--Start - Libraries-->
+    <link href="../libraries/bootstrap.min.css" rel="stylesheet" />
+    <link href="../libraries/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../libraries/jquery.min.js"></script>
+    <script src="../libraries/bootstrap.min.js"></script>
+    <script src="../libraries/jquery-ui.min.js"></script>
+    <script src="../libraries/aes.js"></script>
+    <!--End - Libraries-->
+
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <script src="../scripts/default.js"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/usermanagement.js"></script>
+    <style>
+        body.edit_profile_body {
+            background-image: url('../images/edit_profile_bg.jpeg');
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: auto;
+        }
+
+        #edit_profile_container {
+            width: 800px;
+            margin: 40px;
+            border: 1px solid #C0C0C0;
+            padding: 30px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.5);
+            margin-top: 20px;
+            margin-left: 60px;
+        }
+
+            #edit_profile_container #imgUserPhoto {
+                margin-right: 30px;
+                vertical-align: top;
+            }
+
+            #edit_profile_container label {
+                width: 150px;
+            }
+
+            #edit_profile_container input {
+                width: 300px;
+            }
+    </style>
+    <script>
+        $(function () {
+            user.loadEditPage();
+        });
+    </script>
+</head>
+<body class="edit_profile_body">
+    <div id="edit_profile_container" align="center">
+        <form id="frmEditProfile">
+            <input type="text" id="txtUserId" class="form-control" disabled style="display:none;"/>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtUserName" class="input-group-text">User name</label>
+                </div>
+                <input type="text" id="txtUserName" class="form-control" disabled />
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtFirstName" class="input-group-text">First name</label>
+                </div>
+                <input type="text" id="txtFirstName" class="form-control" />
+                <p class="error-note username-error"></p>
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtLastName" class="input-group-text">Last name</label>
+                </div>
+                <input type="text" id="txtLastName" class="form-control" />
+                <p class="error-note username-error"></p>
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtEmail" class="input-group-text">Email</label>
+                </div>
+                <input type="text" id="txtEmail" class="form-control" />
+                <p class="error-note username-error"></p>
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="txtPhone" class="input-group-text">Phone number</label>
+                </div>
+                <input type="text" id="txtPhone" class="form-control" />
+                <p class="error-note username-error"></p>
+            </div>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <label for="fileUserPhotoUrl" class="input-group-text">Profile Photo</label>
+                </div>
+                <input class="form-control" type="file" id="fileUserPhotoUrl" />
+            </div>
+            <div style="margin-bottom: 20px; text-align: center;">
+                <img id="imgUserPhoto" src="http://localhost:8080/assets/books/no-image.jpg" style="height:100px;width:100px;">
+            </div>
+            <input type="button" class="btn bg-pink btn-block" id="btnSaveChanges" value="Save Changes" />
+        </form>
+    </div>
+</body>
+</html>
