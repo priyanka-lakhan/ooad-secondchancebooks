@@ -60,7 +60,7 @@ var main = {
             var menuHTML = $menuContainer.html();
             var thumbnailUrl = hostpath + "assets/books/no-image.jpg";
             if (userJson.thumbnailUrl != null && userJson.thumbnailUrl != undefined)
-                thumbnailUrl = userJson.thumbnailUrl;
+                thumbnailUrl = hostpath + userJson.thumbnailUrl;
 
             menuHTML = menuHTML.replace(/{{thumbnailUrl}}/g, thumbnailUrl);
             menuHTML = menuHTML.replace(/{{firstName}}/g, userJson.firstname);

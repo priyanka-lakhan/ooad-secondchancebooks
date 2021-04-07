@@ -21,7 +21,7 @@
         });
     },
     getCall: function (apiURL, data, callback) {
-        debugger;
+
         var token = "";
         var headerJson = {};
         if (apiURL.indexOf("/login") < 0)
